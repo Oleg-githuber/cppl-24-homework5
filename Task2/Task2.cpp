@@ -14,14 +14,16 @@
 
 int main()
 {
-	size_t raws{ 2 };
-	size_t columns{ 3 };
-    auto test = Table<int>(raws, columns);
+	int raws{ 2 };
+	int columns{ 3 };
+	Table<int> test(raws, columns);
     //test[0][0] = 4;
 	//std::cout << test[0][0];
 	initMatrix(test, raws, columns);
+	Table<int> t2(test);
+	//t2 = test;
 	printMatrix(test, raws, columns);
-	std::cout << "Table has " << test.Size() << " elements\n";
+	std::cout << "Table has " << test.Size().first << " raws and " << test.Size().second << " columns.\n";
 
 	return EXIT_SUCCESS;
 }
